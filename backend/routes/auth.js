@@ -1,13 +1,14 @@
 const express=require('express')
 const router = express.Router()
 
+const User=require('../models/User')
 
 router.get('/',(req,res )=>{
-     data={
-        name:"prince",
-
-     }
-     res.json(data)
+        console.log(req.body,User)
+         const user=User(req.body)
+         user.save()
+       
+        res.send(req.body)
 })
 
 

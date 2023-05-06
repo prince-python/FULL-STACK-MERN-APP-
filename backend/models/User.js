@@ -1,4 +1,7 @@
-const mongoose =require('mongoose');
+
+const mongoose =require('mongoose')
+
+const { Schema } = mongoose;
 
 const UserSchema= new Schema({
 
@@ -8,5 +11,6 @@ const UserSchema= new Schema({
     datetime:{type:Date,default:Date.now}
 })
 
+UserModel = mongoose.model("Users", UserSchema, "users");
 
-mongoose.exports=mongoose.model('User',UserSchema)
+module.exports = UserModel;
