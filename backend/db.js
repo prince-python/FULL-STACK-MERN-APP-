@@ -1,10 +1,11 @@
+const mongoose = require('mongoose');
 
-const mongooses=require('mongoose')
-const mongoURI='mongodb://127.0.0.1:27017/notebook'
+const mongoURI = "mongodb://localhost:27017/inotebook?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false"
 
-const connectToMongo =()=>{
-    mongooses.connect(mongoURI,console.log('connected to mongo'))
-    
+const connectToMongo = ()=>{
+    mongoose.connect(mongoURI, ()=>{
+        console.log("Connected to Mongo Successfully");
+    })
 }
 
-module.exports=connectToMongo;
+module.exports = connectToMongo;
